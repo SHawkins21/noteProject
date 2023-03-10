@@ -4,7 +4,7 @@ import {api} from "~/utils/api";
 
 
 
-type Props = {}
+
 
 const Notes:NextPage = () => {
 
@@ -13,6 +13,7 @@ const Notes:NextPage = () => {
     <>
     
      <div> 
+      <h1>Notes</h1>
         {
             notes?.map(({id, title,content}) => 
                 <div key={id}>
