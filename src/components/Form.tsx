@@ -1,4 +1,5 @@
-import {useState} from 'react'
+import {useState} from 'react' 
+import { api } from "~/utils/api"; 
 
 interface NoteForm{
     title:string, 
@@ -7,16 +8,23 @@ interface NoteForm{
 
 const Form = () => {
 
+    const mutation = api.note.create.useMutation({
+        onSuccess: () => { 
+         void   console.log('good'); 
+        }
+    })
+
     const [title, setTitle] = useState<string>("")
     const [content, setcontent] = useState<string>("")
 
-    const getFormData = (e):void => {
+    const getFormData = (e:MouseEvent):void => {
         e.preventDefault()
         const data = {
             title, 
             content
         }
-        console.log(data)
+        mutation.mutate(data)
+        console.log(data);
 
 
     }
