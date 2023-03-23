@@ -10,6 +10,11 @@ const noteSchema =z.object({
   title:z.string().trim(),
   content:z.string().trim()
 })
+const updateNoteSchema =z.object({
+  id:z.string(), 
+  title:z.string().trim(),
+  content:z.string().trim()
+})
 
 export const notesRoutes = createTRPCRouter({
     AllNotes:publicProcedure
@@ -32,8 +37,22 @@ create:protectedProcedure
     }
 
  })
-})
+}),
+update:protectedProcedure
+.input(updateNoteSchema)
+.mutation(({ctx:{prisma},input:{id,title,content}}) => {
+  return prisma.note.update({
+   where:{
+    id,
+       },
+       data:{
+        title,
+        content
+       }
 
+  })
+  
+})
 
 //end
 })
