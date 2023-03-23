@@ -23,7 +23,9 @@ const NoteDetail:NextPage = () => {
  const deleteNote = ():void => {
   mutation.mutate({id})
  }
-
+ const edit = () => {
+  void router.push(`/note/${id}/edit/`)
+ }
   return (
     <div>
 
@@ -32,6 +34,12 @@ const NoteDetail:NextPage = () => {
       <div>
         <button onClick={()=> deleteNote() } className=' bg-red-500 px-6 py-4 rounded-lg'>Delete</button>
       </div>
+
+      <button onClick={()=>edit()}
+      className="bg-blue-400 px-6 py3">Edit
+
+
+      </button>
 
     </div>
   )
