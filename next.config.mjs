@@ -16,7 +16,7 @@ const config = {
           protocol: 'https', 
           hostname: 'lh3.googleusercontent.com',
           port:'',
-          pathname:'/a/AGNmyxZzfLhIF-hSk7mdfQwaPtbjfKdjEG2TKw2LpK1c=s96-c'
+          pathname:'/a/**'
       },
 
 

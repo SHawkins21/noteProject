@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <div className='flex items-center w-full mb-8'>
         <div className='px-6'>
-            <p className="text-xs"> Hello,{session.data?.user.name}</p>
+            <p className="text-xs"> Hello,{session.data?.user.name as string ?? ""}</p>
             <h1 className="text-4xl">My Notes</h1>
         </div>
         <div className="ml-auto px-6">
@@ -21,7 +21,7 @@ const Header = () => {
             src={session.data?.user.image as string}
             alt="Avatar"
             />
-            
+
         </div>
     </div>
   )

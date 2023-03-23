@@ -1,5 +1,6 @@
-import {useState} from 'react' 
+import {SyntheticEvent, useState} from 'react' 
 import { api } from "~/utils/api"; 
+import { useRouter } from 'next/router';
 
 interface NoteForm{
     title:string, 
@@ -8,16 +9,18 @@ interface NoteForm{
 
 const Form = () => {
 
+    const router = useRouter()
+
     const mutation = api.note.create.useMutation({
-        onSuccess: () => { 
-         void   console.log('good'); 
+        onSuccess: async () => { 
+         await  router.push('/note'); 
         }
     })
 
     const [title, setTitle] = useState<string>("")
     const [content, setcontent] = useState<string>("")
 
-    const getFormData = (e:MouseEvent):void => {
+    const getFormData = (e:SyntheticEvent):void => {
         e.preventDefault()
         const data = {
             title, 
