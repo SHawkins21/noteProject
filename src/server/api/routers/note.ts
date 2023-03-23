@@ -11,8 +11,6 @@ const noteSchema =z.object({
   content:z.string().trim()
 })
 
-export const IDSchema = z.object({id:z.string()})
-
 export const notesRoutes = createTRPCRouter({
     AllNotes:publicProcedure
     .query(({ctx:{prisma}}) => {
@@ -34,28 +32,7 @@ create:protectedProcedure
     }
 
  })
-}),
-
-detail:protectedProcedure
-  .input(IDSchema)
-  .query(({ctx:{prisma},input:{id}}) => {
-    return prisma.note.findUnique({
-      where:{
-        id,
-      }
-    })
-  }),
-
-delete:protectedProcedure
-.input(IDSchema)
-.mutation(({ctx:{prisma}, input:{id}})=> {
-      return prisma.note.delete({
-        where:{
-          id, 
-        }
-      })
-}),
-
+})
 
 
 //end
