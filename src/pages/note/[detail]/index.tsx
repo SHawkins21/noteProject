@@ -27,18 +27,22 @@ const NoteDetail:NextPage = () => {
   void router.push(`/note/${id}/edit/`)
  }
   return (
-    <div>
+  <div>
+  <h1 className='text-2xl font-bold py-4 p-2 '>{detail?.title}</h1>
+  <div className='flex space-x-3 p-4 px-2 '>
   <button onClick={()=>edit()}
-      className="bg-blue-400 px-6 py3">Edit</button>
-      
-    <div className=''>
+      className="bg-blue-500 px-6 py-4 rounded-lg">Edit</button>
+  <div>
+        <button onClick={()=> deleteNote() } className=' bg-red-500 px-6 py-4 rounded-lg'>Delete</button>
+  </div>   
+  </div>
+
+    <div className='px-4 w-[400px]'>
       <div className=''>
-      <h1 className=' '>{detail?.title}</h1>
+      
       <p>{detail?.content}</p>
 
-      <div>
-        <button onClick={()=> deleteNote() } className=' bg-red-500 px-6 py-4 rounded-lg'>Delete</button>
-      </div>
+      
      </div>
       
 

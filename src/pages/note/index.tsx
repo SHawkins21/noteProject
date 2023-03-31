@@ -62,9 +62,10 @@ const Notes:NextPage = () => {
                   <button onClick={()=> deleteNote()} className='bg-red-500 px-2 py-2 rounded-full'>
                   <AiOutlineDelete></AiOutlineDelete>  
                   </button>
+                  <Link href={`note/${id}`} >
                   <div className="font-semibold text-slate-600 my-2 ">{title}</div>
                   <div className='truncate' >{content}...</div>
-                  <Link href={`note/${id}`} ></Link>
+                  </Link>
                 </div>
                 
                 </div>

@@ -7,10 +7,10 @@ import Image from "next/image"
 const Header = () => {
     const session = useSession()
   return (
-    <div className='flex items-center w-full mb-8'>
+    <div className='flex items-center w-full mb-8 bg-blue-200 rounded-b-xl'>
         <div className='px-6'>
-            <p className="text-xs"> Hello,{session.data?.user.name as string ?? ""}</p>
-            <h1 className="text-4xl">My Notes</h1>
+            <p className="text-lg font-bold py-4"> Hello,{session.data?.user.name as string ?? ""}</p>
+            <h1 className="italic text-4xl p-4">My Notes</h1>
         </div>
         <div className="ml-auto px-6">
             
