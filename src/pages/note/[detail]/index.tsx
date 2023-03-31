@@ -28,19 +28,24 @@ const NoteDetail:NextPage = () => {
  }
   return (
     <div>
-
-      <h1>{detail?.title}</h1>
+  <button onClick={()=>edit()}
+      className="bg-blue-400 px-6 py3">Edit</button>
+      
+    <div className=''>
+      <div className=''>
+      <h1 className=' '>{detail?.title}</h1>
       <p>{detail?.content}</p>
+
       <div>
         <button onClick={()=> deleteNote() } className=' bg-red-500 px-6 py-4 rounded-lg'>Delete</button>
       </div>
+     </div>
+      
 
-      <button onClick={()=>edit()}
-      className="bg-blue-400 px-6 py3">Edit
 
+      
 
-      </button>
-
+    </div>
     </div>
   )
 }

@@ -42,45 +42,38 @@ const Notes:NextPage = () => {
      <div className='w-full p-5 text-4xl bg-slate-400 rounded-md '>
       <h1 className='text-white text-center'>Notes</h1>
       </div>
-      <div className='p-5'></div>
+
+      <div className='p-5'>
+
+              <button
+              onClick={()=> createRoute()}
+              className='bg-sky-300 rounded-full  text-white flex justify-center items-center h-[50px] w-[200px]'>Add New Note</button>
+
+
+        </div>
+
+      
         {
-            notes?.map(({id, title}) => 
-            <div className='grid'>
-                <div className='flex p-4 bg-slate-400 rounded-xl w-40 shadow-black shadow-sm' key={id}>
+            notes?.map(({id, title, content}) => 
+        <div className='inline-grid grid-cols-1 p-4'>
+
+                <div className=' p-4 bg-slate-400 rounded-xl w-40 shadow-black shadow-sm' key={id}>
                   <div>
                   <button onClick={()=> deleteNote()} className='bg-red-500 px-2 py-2 rounded-full'>
                   <AiOutlineDelete></AiOutlineDelete>  
                   </button>
-                  </div>
-                  <Link href={`note/${id}`}>
-                  
-                  <h1 className="font-semibold text-slate-600 my-2 ">{title}</h1>
-                  
-                  </Link>
-                    
-                    <div className=''>
-                    
-                    {/* <p className=''>{content}</p> */}
-                    <p>{}</p>
-                    </div>
-
+                  <div className="font-semibold text-slate-600 my-2 ">{title}</div>
+                  <div className='truncate' >{content}...</div>
+                  <Link href={`note/${id}`} ></Link>
                 </div>
-            </div>
+                
+                </div>
             
-            
-            )
-
-
-
-        }
-        <div>
-
-              <button
-              onClick={()=> createRoute()}
-              className='bg-sky-300 rounded-full text-white flex justify-center items-center h-[50px] w-[50px]'>New Note</button>
-
-
+         
         </div>
+            )
+        }
+        
      </div>
 
     </>

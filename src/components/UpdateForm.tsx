@@ -28,7 +28,7 @@ const UpdateForm = () => {
         setTitle(note?.title)
         setcontent(note?.content)
 
-    } [note?.title,note?.content])
+    }, [note?.title,note?.content])
 
     const getFormData = (e:SyntheticEvent):void => {
         e.preventDefault()
