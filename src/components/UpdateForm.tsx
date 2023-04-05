@@ -43,22 +43,40 @@ const UpdateForm = () => {
     }
 
   return (
-    <div>
-        <form>
-            <div>
-                
-                <input type="text" placeholder='Testing' onChange={(evt)=> setTitle(evt.target.value)} value={title}/>
+    <div className='p-4'>
+        <form className='space-x-6 '>
+            <div className='flex space-x-6'>
+            <div className=''>
+                <label className=' text-gray-600 italic'>Edit Note Title</label>
+                <input type="text" 
+                       placeholder='Testing' 
+                       onChange={(evt)=> setTitle(evt.target.value)} 
+                       value={title}
+                       className='flex p-4 h-[80px] text-gray-400 font-semibold bg-slate-100 rounded-lg'
+                       />
+                       
 
 
             </div>
-            <div>
-                
-                <textarea placeholder='Content' onChange={(evt)=> setcontent(evt.target.value)}/>
+            <div className=''>
+                <text className='text-gray-600 italic'>Edit Note Content</text>
+                <textarea 
+                          className='flex text-gray-400 p-4 border-spacing-4 bg-slate-100 rounded-lg' 
+                          value={content}
+                          onChange={(evt)=> setcontent(evt.target.value)}/>
 
 
             </div>
-            <div>
-                <button onClick={(e)=> getFormData(e)}>Submit Note</button>
+            </div>
+            <div className='p-5 '>
+                <button
+                     className='hover:shadow-lg bg-green-300 p-4 rounded-lg'
+
+                     onClick={(e)=> getFormData(e)}>Submit Note
+                   
+                     
+                     
+                </button>
             </div>
 
 
