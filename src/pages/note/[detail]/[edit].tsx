@@ -10,7 +10,7 @@ const Edit = () => {
 
 
   return (
-    <div className='font-bod text-4xl'><h1>Edit</h1>
+    <div><h1 className='font-bod text-4xl'>Edit</h1>
     <UpdateForm/>
     </div>
   )

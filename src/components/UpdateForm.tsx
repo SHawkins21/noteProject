@@ -15,28 +15,29 @@ const UpdateForm = () => {
         id:router.query.detail as string
     })
 
-    const mutation = api.note.create.useMutation({
+    const mutation = api.note.update.useMutation({
         onSuccess: async () => { 
          await  router.push('/note'); 
         }
     })
 
-    const [title, setTitle] = useState<string>("")
-    const [content, setcontent] = useState<string>("")
+    const [title, setTitle] = useState<string | undefined>("")
+    const [content, setcontent] = useState<string | undefined>("")
 
     useEffect(() => {
         setTitle(note?.title)
         setcontent(note?.content)
 
-    } [note?.title,note?.content])
+    }, [note?.title,note?.content])
 
     const getFormData = (e:SyntheticEvent):void => {
         e.preventDefault()
         const data = {
-            title, 
-            content
+            title: title as string, 
+            content:content as string,
+            id:note?.id as string, 
         }
-        // mutation.mutate(data)
+        mutation.mutate(data)
         console.log(data);
 
 
@@ -51,9 +52,9 @@ const UpdateForm = () => {
 
 
             </div>
-            <div>
+            <div className='text-sm'>
                 
-                <textarea placeholder='Content' onChange={(evt)=> setcontent(evt.target.value)}/>
+                <textarea placeholder='Content' onChange={(evt)=> setcontent(evt.target.value)} value={content}/>
 
 
             </div>
