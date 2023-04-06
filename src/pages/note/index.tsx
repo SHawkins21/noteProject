@@ -44,7 +44,7 @@ const Notes:NextPage = () => {
       </div>
       <div className='p-5'></div>
         {
-            notes?.map(({id, title}) => 
+            notes?.map(({id, title, slug}) => 
             <div className='grid'>
                 <div className='flex p-4 bg-slate-400 rounded-xl w-40 shadow-black shadow-sm' key={id}>
                   <div>
@@ -52,7 +52,7 @@ const Notes:NextPage = () => {
                   <AiOutlineDelete></AiOutlineDelete>  
                   </button>
                   </div>
-                  <Link href={`note/${id}`}>
+                  <Link href={`note/${slug as string}`}>
                   
                   <h1 className="font-semibold text-slate-600 my-2 ">{title}</h1>
                   

@@ -67,8 +67,10 @@ model VerificationToken {
 }
 
 model Note { 
+
     id String @id @default(cuid())
-    title String
+    slug String @unique
+    title String @unique
     content String
     createdAt DateTime @default(now())
     updateAt DateTime @updatedAt

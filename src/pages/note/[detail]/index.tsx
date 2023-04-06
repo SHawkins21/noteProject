@@ -10,7 +10,7 @@ const NoteDetail:NextPage = () => {
   const noteID = router.query.detail as string
 
   const {data:detail} = api.note.detail.useQuery({
-    id:noteID
+    slug:noteID
   })
   const mutation = api.note.delete.useMutation({
     onSuccess:async () => {
@@ -18,7 +18,7 @@ const NoteDetail:NextPage = () => {
     }
   })
 
-  const id = detail?.id as string
+  const id = detail?.slug as string
   
  const deleteNote = ():void => {
   mutation.mutate({id})

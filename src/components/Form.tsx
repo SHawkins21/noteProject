@@ -1,10 +1,12 @@
 import {SyntheticEvent, useState} from 'react' 
 import { api } from "~/utils/api"; 
 import { useRouter } from 'next/router';
+import slugify from 'slugify';
 
 interface NoteForm{
     title:string, 
-    content:string
+    content:string, 
+    
 }
 
 const Form = () => {
@@ -24,7 +26,8 @@ const Form = () => {
         e.preventDefault()
         const data = {
             title, 
-            content
+            content,
+            slug:slugify(title,'_').toLowerCase()
         }
         mutation.mutate(data)
         console.log(data);
