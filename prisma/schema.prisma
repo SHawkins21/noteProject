@@ -103,7 +103,7 @@ model Tags {
     userId String
     noteId String
     
-    User User @relation( fields: [userId], refrences: [id], onDelete: Cascade)
+    User User @relation( fields: [userId], references: [id], onDelete: Cascade)
     notes Note[]
     status Status[]
     
