@@ -18,7 +18,8 @@ const UpdateForm = () => {
 
     const mutation = api.note.update.useMutation({
         onSuccess: async () => { 
-         await  router.push('/note'); 
+        //  await  router.push(`/note/${router.query.detail as string}`);
+        await  router.push(`/note/${slugify(title as string,'_').toLowerCase()}`) 
         }
     })
 
@@ -39,10 +40,10 @@ const UpdateForm = () => {
             title: title as string, 
             content:content as string,
             id:note?.id as string, 
-            slug:slugify(title as string,'_' ).toLowerCase,
+            slug:slugify(title as string,'_' ).toLowerCase(),
         }
         mutation.mutate(data)
-        console.log(data);
+        // console.log(data);
 
 
     }

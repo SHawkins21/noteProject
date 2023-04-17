@@ -43,8 +43,10 @@ const Notes:NextPage = () => {
       <h1 className='text-white text-center'>Notes</h1>
       </div>
       <div className='p-5'></div>
+     
         {
             notes?.map(({id, title, slug}) => 
+            
             <div className='grid'>
                 <div className='flex p-4 bg-slate-400 rounded-xl w-40 shadow-black shadow-sm' key={id}>
                   <div>
