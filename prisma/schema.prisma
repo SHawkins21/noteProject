@@ -81,7 +81,7 @@ model Note {
     tagId String
     User User @relation(fields: [userId], references: [id], onDelete: Cascade)
     topic Topic @relation(fields:[noteId], references: [id], onDelete: Cascade)
-    tags Tags @relation(fields:[tagId], refrence: [id], onDelete: Cascade)
+    tags Tags []
 
 }
 
