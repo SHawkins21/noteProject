@@ -1,11 +1,24 @@
-import React from 'react'
+import {type NextPage} from "next"
+import {api} from "~/utils/api"
+import {useRouter} from "next/router"; 
 
-type Props = {}
 
-const Detail = (props: Props) => {
+
+const Topics:Nextpage = () => {
+
+  const router = useRouter()
+  const id = router.query.detail as string
+
+  const {data: note, isLoading} = api.topic.topic_notes.useQuery(
+
+    {
+      id:id 
+    }
+  )
+
   return (
-    <div> Detail</div>
+    <div>Title{note?.title}</div>
   )
 }
 
-export default Detail
+export default Topics
