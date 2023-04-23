@@ -1,7 +1,7 @@
 import {type NextPage} from "next"
 import {api} from "~/utils/api"
 import {useRouter} from "next/router"; 
-
+import Link from "next/link"
 
 
 const Topics:Nextpage = () => {
@@ -17,7 +17,21 @@ const Topics:Nextpage = () => {
   )
 
   return (
-    <div>Title{note?.title}</div>
+
+  <div> 
+    <div>{note?.title}</div>
+    {
+      note?.notes?.map(({title,slug,createdAt})=>(
+        <li key={slug}>
+          <h2>{title}</h2>
+          <Link href={`/note/${slug}`}>
+            <h2>{title}</h2>
+            <p>{ new Date(createdAt).getFullYear()}</p>
+          </Link>
+        </li>
+      ))
+    }
+  </div> 
   )
 }
 

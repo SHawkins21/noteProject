@@ -51,12 +51,18 @@ export const topicRoute = createTRPCRouter({
         topic_notes:publicProcedure
          .input(IDSchema)
          .query(({ctx: {prisma}, input:{id}}) => {
-            return prisma.note.findUnique({
+            return prisma.topic.findUnique({
                 where:{
                     id
                 }, 
-                select:{
-                    noteId:true
+                include:{
+                    notes:{
+                        select:{
+                        title:true, 
+                        content:true, 
+                        slug:true
+                    }}
+                    
                 }
             })
          })
