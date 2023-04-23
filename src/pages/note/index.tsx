@@ -73,7 +73,7 @@ const Notes:NextPage = () => {
                 </div>
             
          
-        </div>
+        // </div>
             )
         }
         
