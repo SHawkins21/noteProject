@@ -8,12 +8,14 @@ import {
 
 const noteSchema =z.object({
   title:z.string().trim(),
-  content:z.string().trim()
+  content:z.string().trim(),
+  slug:z.string()
 })
 const updateNoteSchema =z.object({
   id:z.string(), 
   title:z.string().trim(),
-  content:z.string().trim()
+  content:z.string().trim(),
+  slug:z.string(),
 })
 export const IDSchema = z.object({id:z.string()})
 export const notesRoutes = createTRPCRouter({
@@ -28,14 +30,15 @@ export const notesRoutes = createTRPCRouter({
 
 create:protectedProcedure
 .input(noteSchema)
-.mutation(({ctx:{prisma, session},
- input:{title,content} 
+.mutation(({ctx:{prisma, session,},
+ input:{title,content,slug} 
 
 }) => {
  return prisma.note.create({
     data:{
       title, 
       content, 
+      slug, 
       userId:session.user.id
     }
 
@@ -57,11 +60,13 @@ update:protectedProcedure
 
 }), 
 detail:protectedProcedure
-  .input(IDSchema)
-  .query(({ctx:{prisma},input:{id}})=>{
+  .input(z.object({
+    slug:z.string()
+  }))
+  .query(({ctx:{prisma},input:{slug}})=>{
     return prisma.note.findUnique({
       where:{
-        id, 
+        slug:slug
       }
     })
   }), 

@@ -6,6 +6,7 @@ import Form from '~/components/Form'
 
 const Create:NextPage = () => {
   return (
+    
     <div>
             <Form/>
     </div>

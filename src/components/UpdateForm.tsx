@@ -1,10 +1,11 @@
 import {useState,useEffect, type SyntheticEvent, } from 'react' 
 import { api } from "~/utils/api"; 
 import { useRouter } from 'next/router';
+import slugify from 'slugify';
 
 interface NoteForm{
     title:string, 
-    content:string
+    content:string,
 }
 
 const UpdateForm = () => {
@@ -12,32 +13,37 @@ const UpdateForm = () => {
     const router = useRouter()
 
     const {data:note,isLoading} = api.note.detail.useQuery({
-        id:router.query.detail as string
+        slug:router.query.detail as string
     })
 
-    const mutation = api.note.create.useMutation({
+    const mutation = api.note.update.useMutation({
         onSuccess: async () => { 
-         await  router.push('/note'); 
+        //  await  router.push(`/note/${router.query.detail as string}`);
+        await  router.push(`/note/${slugify(title as string,'_').toLowerCase()}`) 
         }
     })
 
-    const [title, setTitle] = useState<string>("")
-    const [content, setcontent] = useState<string>("")
+    const [title, setTitle] = useState<string | undefined>("")
+    const [content, setcontent] = useState<string | undefined>("")
 
     useEffect(() => {
         setTitle(note?.title)
         setcontent(note?.content)
+        //setSlug(note?.slug as string)
 
-    }, [note?.title,note?.content])
+    }, [note?.title,note?.content,])
 
     const getFormData = (e:SyntheticEvent):void => {
         e.preventDefault()
+      
         const data = {
-            title, 
-            content
+            title: title as string, 
+            content:content as string,
+            id:note?.id as string, 
+            slug:slugify(title as string,'_' ).toLowerCase(),
         }
-        // mutation.mutate(data)
-        console.log(data);
+        mutation.mutate(data)
+        // console.log(data);
 
 
     }

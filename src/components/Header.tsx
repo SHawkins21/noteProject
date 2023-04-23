@@ -12,6 +12,15 @@ const Header = () => {
             <p className="text-lg font-bold py-4"> Hello,{session.data?.user.name as string ?? ""}</p>
             <h1 className="italic text-4xl p-4">My Notes</h1>
         </div>
+        <div>
+          <li><Link href="/note">Note</Link></li>
+        </div>
+        <div> 
+          <li><Link href="/topic/create"> New Topic</Link></li>
+        </div>
+        <div> 
+          <li><Link href="/tags/create"> New Tags</Link></li>
+        </div>
         <div className="ml-auto px-6">
             
             <Image
@@ -23,6 +32,7 @@ const Header = () => {
             />
 
         </div>
+        
     </div>
   )
 }

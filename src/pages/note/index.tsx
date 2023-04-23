@@ -54,17 +54,19 @@ const Notes:NextPage = () => {
 
       
         {
-            notes?.map(({id, title, content}) => 
-        <div className='inline-grid grid-cols-1 p-4'>
-
-                <div className=' p-4 bg-slate-400 rounded-xl w-40 shadow-black shadow-sm' key={id}>
+            notes?.map(({id, title, slug}) => 
+            
+            <div className='grid'>
+                <div className='flex p-4 bg-slate-400 rounded-xl w-40 shadow-black shadow-sm' key={id}>
                   <div>
                   <button onClick={()=> deleteNote()} className='bg-red-500 px-2 py-2 rounded-full'>
                   <AiOutlineDelete></AiOutlineDelete>  
                   </button>
-                  <Link href={`note/${id}`} >
-                  <div className="font-semibold text-slate-600 my-2 ">{title}</div>
-                  <div className='truncate' >{content}...</div>
+                  </div>
+                  <Link href={`note/${slug as string}`}>
+                  
+                  <h1 className="font-semibold text-slate-600 my-2 ">{title}</h1>
+                  
                   </Link>
                 </div>
                 
