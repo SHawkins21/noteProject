@@ -12,14 +12,15 @@ const Header = () => {
             <p className="text-lg font-bold py-4"> Hello,{session.data?.user.name as string ?? ""}</p>
             <h1 className="italic text-4xl p-4">My Notes</h1>
         </div>
-        <div className="">
-        <div>
+
+        <div className="flex ">
+        <div className="p-4">
           <p><Link href="/note">Note</Link></p>
         </div>
-        <div> 
+        <div className="p-4"> 
           <p><Link href="/topic/create"> New Topic</Link></p>
         </div>
-        <div> 
+        <div className="p-4"> 
           <p><Link href="/tags/create"> New Tags</Link></p>
         </div>
         </div>
