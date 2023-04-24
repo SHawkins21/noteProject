@@ -92,7 +92,7 @@ model Topic {
     updateAt DateTime @updatedAt
     userId String
     User User @relation(fields: [userId], references: [id], onDelete: Cascade)
-    notes Note[]
+    notes Note[] 
 }
 
 model Tags {
