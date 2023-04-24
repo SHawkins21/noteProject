@@ -58,7 +58,7 @@ const Notes:NextPage = () => {
             
             <div className=' inline-grid p-4'>
                 <div className='flex p-4 bg-slate-400 rounded-xl w-40 h-40 shadow-black shadow-sm' key={id}>
-                  <div className='p-3  items-'>
+                  <div className='p-3'>
                   <button onClick={()=> deleteNote()} className='bg-red-500 px-2 py-2 rounded-full'>
                   <AiOutlineDelete></AiOutlineDelete>  
                   </button>
@@ -66,7 +66,7 @@ const Notes:NextPage = () => {
                   <Link href={`note/${slug as string}`}>
                   
                   <h1 className="text-center font-semibold text-slate-600 my-2 ">{title}</h1>
-                  <h2 className="text-center font-semibold text-slate-600 my-2 ">{content}</h2>
+                  <h2 className="truncate font-semibold text-slate-600 my-2 ">{content}...</h2>
                   
                   
                   
