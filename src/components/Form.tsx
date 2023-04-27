@@ -38,20 +38,30 @@ const Form = () => {
   return (
     <div>
         <form>
-            <div>
+            <div className='p-4'>
                 
-                <input type="text" placeholder='Testing' onChange={(evt)=> setTitle(evt.target.value)}/>
+                <input 
+                type="text" 
+                placeholder='Note Title' 
+                onChange={(evt)=> setTitle(evt.target.value)}
+                className="p-4 bg-slate-300 rounded-xl"/>
 
 
             </div>
-            <div>
+            <div className='p-4'>
                 
-                <textarea placeholder='Content' onChange={(evt)=> setcontent(evt.target.value)}/>
+                <textarea 
+                
+                placeholder='Note Content' 
+                onChange={(evt)=> setcontent(evt.target.value)}
+                className='p-4 bg-slate-300 rounded-xl'/>
 
 
             </div>
-            <div>
-                <button onClick={(e)=> getFormData(e)}>Submit Note</button>
+            <div className='p-4'>
+                <button 
+                className=' bg-green-500 text-white p-6 rounded-md'
+                onClick={(e)=> getFormData(e)}>Add New Note</button>
             </div>
 
 

@@ -4,7 +4,7 @@ import {useRouter} from "next/router";
 import Link from "next/link"
 
 
-const Topics:Nextpage = () => {
+const Topics:NextPage = () => {
 
   const router = useRouter()
   const id = router.query.detail as string

@@ -2,6 +2,7 @@ import React from 'react'
 import { topicRoute } from '~/server/api/routers/topics'
 import { api } from '~/utils/api'
 import Link from 'next/link'
+import Notes from '../note'
 
 
 
@@ -19,14 +20,15 @@ const Topics = () => {
   }
 
  return (
-    <div> 
-      <ul>
+    <div className='p-4'> 
+      <ul className='flex space-x-4 '>
       {
         data?.map(({title,id}, index) => (
           <li key={index}>
             
-            <Link  href={`/topic/${id}`}>
+            <Link className='' href={`/topic/${id}`}>
                   <p>{title}</p>
+                  
             </Link>
               {/* {
                 notes?.map(({slug}) => (
