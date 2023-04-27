@@ -1,8 +1,10 @@
+import {type GetServerSidePropsContext, type NextPage } from 'next'
 import React from 'react'
 import TopicForm from '~/components/topics/TopicForm'
-type Props = {}
+import { getServerAuthSession } from '~/server/auth'
 
-const Create = (props: Props) => {
+
+const Create:NextPage = () => {
   return (
     <div>create
 
@@ -16,3 +18,24 @@ const Create = (props: Props) => {
 }
 
 export default Create
+
+export const GetServerSideProps = async(ctx:GetServerSidePropsContext) => {
+ 
+  const session = await getServerAuthSession(ctx)
+
+    if (!session) { 
+      return{
+      redirect:{
+        destination:"/login",
+        permanant:false
+      }}
+
+    }
+
+    return { 
+      props:{
+        session
+      }
+    }
+
+}

@@ -1,9 +1,10 @@
-
+import { type GetServerSidePropsContext, } from 'next';
 import {type NextPage} from 'next'
 import { AiOutlineDelete } from "react-icons/ai";
 import {api} from "~/utils/api";
 import {useRouter} from "next/router"; 
 import Link from "next/link"; 
+import { getServerAuthSession } from '~/server/auth';
 
 
 const Notes:NextPage = () => {
@@ -90,3 +91,27 @@ const Notes:NextPage = () => {
 }
 
 export default Notes
+
+
+ export async function getServerSideProps(ctx:GetServerSidePropsContext){
+  const session = getServerAuthSession(ctx)
+
+if (!session) { 
+  return { 
+    redirect:{
+    destination:"/login",
+    permanent:false
+   }
+  }
+}
+
+return{ 
+  props:{
+    session
+  }
+}
+
+
+}
+
+
