@@ -18,7 +18,7 @@ const Topics:NextPage = () => {
 
   return (
 
-  <div> 
+  <div key={id} > 
     <div>{note?.title}</div>
     {
       note?.notes?.map(({title,slug,createdAt})=>(

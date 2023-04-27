@@ -6,9 +6,8 @@ import TagsForm from '~/components/tags/TagsForm'
 const Create = () => {
 
     return ( 
-        <div> Create Tag 
+        <div className=' italic'> Create Tag 
 
-        <h1> Tag Status </h1>
         <div>
             <TagsForm/>
         </div>

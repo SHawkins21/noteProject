@@ -13,15 +13,21 @@ const Header = () => {
             <h1 className="italic text-4xl p-4">My Notes</h1>
         </div>
 
-        <div className="flex ">
+        <div className="">
         <div className="p-4">
-          <p><Link href="/note">Note</Link></p>
+          <p><Link 
+          className=" bg-blue-600 text-white p-2 rounded-lg"
+          href="/note">Note</Link></p>
         </div>
         <div className="p-4"> 
-          <p><Link href="/topic/create"> Topic</Link></p>
+          <p><Link 
+          className=" bg-blue-600 text-white p-2 rounded-lg"
+          href="/topic/create"> Topic</Link></p>
         </div>
         <div className="p-4"> 
-          <p><Link href="/tags/create"> Tags</Link></p>
+          <p><Link 
+          className=" bg-blue-600 text-white p-2 rounded-lg"
+          href="/tags/create"> Tags</Link></p>
         </div>
         </div>
 
