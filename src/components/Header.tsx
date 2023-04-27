@@ -18,10 +18,10 @@ const Header = () => {
           <p><Link href="/note">Note</Link></p>
         </div>
         <div className="p-4"> 
-          <p><Link href="/topic/create"> New Topic</Link></p>
+          <p><Link href="/topic/create"> Topic</Link></p>
         </div>
         <div className="p-4"> 
-          <p><Link href="/tags/create"> New Tags</Link></p>
+          <p><Link href="/tags/create"> Tags</Link></p>
         </div>
         </div>
 
