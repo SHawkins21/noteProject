@@ -57,10 +57,10 @@ const Form = () => {
   return (
     <div>
         <form className='p-4 grid justify-center text-2xl'>
-            <div className='p-7 bg-gradient-to-r from-pink-200 to-amber-500 rounded-xl'>
+            <div className=' space-y-2 p-7 bg-gradient-to-r from-pink-200 to-amber-500 rounded-xl'>
                 <p>New Topic</p>
             <div className='space-x-3'> 
-                <select className='bg-slate-200' onChange={(evt) => setTopic(evt.target.value)}>
+                <select className='p-2 bg-slate-200 rounded-xl' onChange={(evt) => setTopic(evt.target.value)}>
                     {
                         topics?.map(({id,title}) => (
                             <option key={id} value={id} defaultValue={id}>{title}</option>
@@ -68,20 +68,21 @@ const Form = () => {
                     }
                 </select>
            </div>
-
-            <div>
+           <p>Note Title</p>
+            <div >
                 
-                <input type="text" placeholder='Title' onChange={(evt)=> setTitle(evt.target.value)}/>
+                <input className='p-4 rounded-md bg-slate-200' type="text" placeholder='Title' onChange={(evt)=> setTitle(evt.target.value)}/>
 
 
             </div>
+            <p>Note Content</p>
             <div>
                 
-                <textarea placeholder='Content' onChange={(evt)=> setcontent(evt.target.value)}/>
+                <textarea className='p-4 rounded-md bg-slate-200' placeholder='Content' onChange={(evt)=> setcontent(evt.target.value)}/>
 
 
             </div>
-            <div>
+            <div className='p-3 rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-200 '>
                 <button onClick={(e)=> getFormData(e)}>Submit Note</button>
             </div>
 
