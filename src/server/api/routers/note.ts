@@ -9,33 +9,41 @@ import {
 const noteSchema =z.object({
   title:z.string().trim(),
   content:z.string().trim(),
-  slug:z.string()
+  slug:z.string(),
+  topicId:z.string()
 })
 const updateNoteSchema =z.object({
   id:z.string(), 
   title:z.string().trim(),
   content:z.string().trim(),
   slug:z.string(),
+  topicId:z.string()
 })
 export const IDSchema = z.object({id:z.string()})
 export const notesRoutes = createTRPCRouter({
+
     AllNotes:publicProcedure
     .query(({ctx:{prisma}}) => {
-        return prisma.note.findMany()
-        orderBy:{
-          createdAt:"desc"
-        }
+        return prisma.note.findMany({
+          orderBy:{
+            createdAt: "desc"
+          }, 
+          include:{
+            user:true
+          }
+        })
     }),
 
 
 create:protectedProcedure
 .input(noteSchema)
 .mutation(({ctx:{prisma, session,},
- input:{title,content,slug} 
+ input:{title,content,slug,topicId} 
 
 }) => {
  return prisma.note.create({
     data:{
+      topicId, 
       title, 
       content, 
       slug, 
