@@ -94,7 +94,7 @@ export default Notes
 
 
  export async function getServerSideProps(ctx:GetServerSidePropsContext){
-  const session = getServerAuthSession(ctx)
+  const session = await getServerAuthSession(ctx)
 
 if (!session) { 
   return { 

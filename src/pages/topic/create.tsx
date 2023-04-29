@@ -19,7 +19,7 @@ const Create:NextPage = () => {
 
 export default Create
 
-export const GetServerSideProps = async(ctx:GetServerSidePropsContext) => {
+export const getServerSideProps = async(ctx:GetServerSidePropsContext) => {
  
   const session = await getServerAuthSession(ctx)
 

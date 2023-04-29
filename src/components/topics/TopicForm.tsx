@@ -21,7 +21,7 @@ type Inputs = {
     {
     onSuccess: async(data, variables, context) => {
 
-      await router.push('/topic')
+      await router.push('/topics')
       console.log(data,"good"); 
     }, 
     }

@@ -58,6 +58,7 @@ model User {
     notes Note[]
     topics Topic[]
     tags Tags[]
+    comments Comment[]
 }
 
 model VerificationToken {
@@ -74,13 +75,13 @@ model Note {
     slug String @unique
     title String @unique
     content String
-    noteId String
     createdAt DateTime @default(now())
     updateAt DateTime @updatedAt
     userId String
-    tagId String
-    User User @relation(fields: [userId], references: [id], onDelete: Cascade)
-    topic Topic @relation(fields:[noteId], references: [id], onDelete: Cascade)
+    topicId String
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    topic Topic @relation(fields:[topicId], references: [id], onDelete: Cascade)
+    comments Comment []
     tags Tags []
 
 }
@@ -91,7 +92,7 @@ model Topic {
     createdAt DateTime @default(now())
     updateAt DateTime @updatedAt
     userId String
-    User User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
     notes Note[]
 }
 
@@ -115,4 +116,15 @@ model Status {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
+}
+
+model Comment { 
+    id String @id @default(cuid())
+    comment String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    userId String 
+    user User @relation(fields:[userId], references: [id],onDelete: Cascade)
+    noteId String
+    note Note @relation(fields: [noteId], references: [id], onDelete: Cascade)
 }
