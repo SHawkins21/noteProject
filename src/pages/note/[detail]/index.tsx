@@ -20,8 +20,8 @@ const NoteDetail:NextPage = () => {
 
   const id = detail?.slug as string
   
- const deleteNote = ():void => {
-  mutation.mutate({id})
+ const deleteNote = () => {
+   void mutation.mutate({id})
  }
  const edit = () => {
   void router.push(`/note/${id}/edit/`)

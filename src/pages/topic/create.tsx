@@ -6,13 +6,16 @@ import { getServerAuthSession } from '~/server/auth'
 
 const Create:NextPage = () => {
   return (
-    <div>create
+    <div className='flex justify-center'>
+    
+    <div className=' text-blue-600 text-3xl space-y-4 italic capitalize '>
 
-        <h1>New Topic</h1>
+        <h1> Create A New Topic: </h1>
         <div>
             <TopicForm/>
         </div>
 
+    </div>
     </div>
   )
 }

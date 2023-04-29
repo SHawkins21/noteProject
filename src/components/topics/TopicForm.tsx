@@ -41,15 +41,15 @@ type Inputs = {
 }
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className='p-4 space-x-3 rounded-xl bg-gradient-to-r from-pink-200 to-amber-500' onSubmit={handleSubmit(onSubmit)}>
       
       
       {/* include validation with required or other standard HTML validation rules */}
-      <input {...register("title", { required: true })} />
+      <input className=' bg-slate-200 rounded-md' {...register("title", { required: true })} />
       {/* errors will return when field validation fails  */}
-      {errors.title && <span>This field is required</span>}
+      {errors.title && <span className=' text-red-700'>This field is required</span>}
       
-      <input type="submit" />
+      <input className='bg-blue-200 p-3 rounded-xl' type="submit" />
     </form>
   );}
 

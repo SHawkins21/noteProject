@@ -56,10 +56,11 @@ const Form = () => {
 
   return (
     <div>
-        <form>
-            
-            <div>
-                <select onChange={(evt) => setTopic(evt.target.value)}>
+        <form className='p-4 grid justify-center text-2xl'>
+            <div className='p-7 bg-gradient-to-r from-pink-200 to-amber-500 rounded-xl'>
+                <p>New Topic</p>
+            <div className='space-x-3'> 
+                <select className='bg-slate-200' onChange={(evt) => setTopic(evt.target.value)}>
                     {
                         topics?.map(({id,title}) => (
                             <option key={id} value={id} defaultValue={id}>{title}</option>
@@ -70,7 +71,7 @@ const Form = () => {
 
             <div>
                 
-                <input type="text" placeholder='Testing' onChange={(evt)=> setTitle(evt.target.value)}/>
+                <input type="text" placeholder='Title' onChange={(evt)=> setTitle(evt.target.value)}/>
 
 
             </div>
@@ -84,7 +85,7 @@ const Form = () => {
                 <button onClick={(e)=> getFormData(e)}>Submit Note</button>
             </div>
 
-
+        </div>
         </form>
 
 

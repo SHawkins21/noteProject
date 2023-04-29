@@ -19,9 +19,9 @@ const Notes:NextPage = () => {
     const {data:notes} = api.note.AllNotes.useQuery(
         
     )
-    // const {data:notes} = api.note.detail.useQuery({
+    // const {data:notes} = api.note.detail.useQuery(
       
-    // })
+    //  )
 
     const mutation = api.note.delete.useMutation({
       onSuccess:async () => {
@@ -33,51 +33,65 @@ const Notes:NextPage = () => {
     const deleteNote = ():void => {
       mutation.mutate({id})
     }
-
+  //   topics?.slice(0,1).map(({id}) => (
+  //     void setTopic(id)
+  // ))
 
 
   return (
     <>
     
      <div className=''> 
-     <div className='w-full p-5 text-4xl bg-slate-400 rounded-md '>
-      <h1 className='text-white text-center'>Notes</h1>
-      </div>
 
-      <div className='p-5'>
+         <div className='w-full p-5 text-4xl bg-pink-200 rounded-md '>
+         <h1 className='text-white text-center'>Notes</h1>
+         </div>
+       
+
+    
+        <div className= 'p-3 flex justify-center'>
 
               <button
               onClick={()=> createRoute()}
-              className='bg-sky-300 rounded-full  text-white flex justify-center items-center h-[50px] w-[200px]'>Add New Note</button>
-
+              className=' bg-sky-300 rounded-full  text-white flex justify-center items-center h-[50px] w-[200px]'>Add New Note</button>
 
         </div>
-
+    
       
         {
-            notes?.map(({id, title, content, slug}) => 
+            notes?.map(({id, title, content, slug, topicId}) => 
+           
             
-            <div className=' inline-grid p-4'>
-                <div className='flex p-4 bg-slate-400 rounded-xl w-40 h-40 shadow-black shadow-sm' key={id}>
-                  <div className='p-3'>
-                  <button onClick={()=> deleteNote()} className='bg-red-500 px-2 py-2 rounded-full'>
+              <div className='inline-grid p-2'>
+                <div className='flex bg-gradient-to-l from-slate-200 to-blue-200 rounded-xl shadow-black shadow-sm 
+                w-[400px] h-[100px]' key={id}>
+                
+                  <button onClick={()=> deleteNote()} className=' bg-red-500 px-2 py-3 p-4 rounded-xl'>
                   <AiOutlineDelete></AiOutlineDelete>  
                   </button>
-                  </div>
+
+                  <div className='grid grid-cols-1'>
                   <Link href={`note/${slug as string}`}>
                   
-                  <h1 className="text-center font-semibold text-slate-600 my-2 ">{title}</h1>
-                  <h2 className="truncate font-semibold text-slate-600 my-2 ">{content}...</h2>
-                  
-                  
-                  
+                  <h1 className="text-center font-bold text-black capitalize my-2 ">{title}</h1>
+                  <h2 className="truncate fir font-semibold text-slate-600 my-5 p-4">{content}...</h2>
+                  <h3 className=''>{}</h3>
                   </Link>
+                  </div>
+
+                   </div>
+
+
+
                 </div>
+               
                 
-                </div>
             
          
-        // </div>
+     
+
+
+
             )
         }
         

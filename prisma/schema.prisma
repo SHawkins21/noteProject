@@ -57,7 +57,7 @@ model User {
     sessions      Session[]
     notes Note[]
     topics Topic[]
-    tags Tags[]
+    // tags Tags[]
     comments Comment[]
 }
 
@@ -82,7 +82,7 @@ model Note {
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
     topic Topic @relation(fields:[topicId], references: [id], onDelete: Cascade)
     comments Comment []
-    tags Tags []
+    // tags Tags []
 
 }
 
@@ -104,8 +104,8 @@ model Tags {
     userId String
     noteId String
     
-    User User @relation( fields: [userId], references: [id], onDelete: Cascade)
-    notes Note[]
+    // User User @relation( fields: [userId], references: [id], onDelete: Cascade)
+    // notes Note[]
     // status Status[]
     
 }
